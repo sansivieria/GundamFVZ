@@ -1,0 +1,29 @@
+body {
+  background-image: url(https://64.media.tumblr.com/757d89eb788de91b57d6578ab9778bcb/tumblr_p7ls1ex05A1v5wg6eo1_540.gifv);
+  background-size: cover;
+}
+
+h2 {
+  color: white;
+}
+
+div.modal{
+  visibility: hidden;
+  width: 50vw;
+  max-width: 400px;
+  position: fixed;
+  top: 45%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  margin: 0 auto;
+  background-color: black;
+  border-radius: 4px;
+  padding: 35px;
+  box-shadow: 4px 1px 10px 0px #dadada;
+  text-align: center;
+}
+
+div.modal.start{
+  visibility: visible;
+}
