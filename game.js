@@ -1,9 +1,17 @@
-const body = document.querySelector('body')
+// variables
 
+
+const body = document.querySelector('body')
 const modal = document.querySelector('body > div.modal');
 const modalBtn = document.querySelector('body > div.modal > button.start');
+const rifleBtnOne = document.querySelector();
+const saberBtn = document.querySelector();
+const cannonBtn = document.querySelector();
+const rifleBtnTwo = document.querySelector();
+const hawkBtn = document.querySelector();
+const lmgBtn = document.querySelector();
 
-// mobile suit classes
+// mobile suit class for first player
 
 class Gundam {
   constructor(name, weapon, accuracy, health) {
@@ -36,6 +44,10 @@ class Gundam {
   }
 }
 
+const rx78 = new Gundam ("RX-78", this.weapon, this.health)
+
+// mobile suit class for computer player
+
 class Zaku {
   constructor(name, weapon, accuracy, health) {
     this.name = name;
@@ -53,16 +65,54 @@ class Zaku {
   checkHealth() {
     console.log("Remaning HP: " + this.health);
   }
-  attackOne() {
+  fightOne() {
     console.log(this.name + " used Beam Rifle!");
     console.log(target.name-- 10);
   }
-  attackTwo() {
+  fightTwo() {
     console.log(this.name + " used Heat Hawk!");
     console.log(target.name-- 4);
   }
-  attackThree() {
+  fightThree() {
     console.log(this.name + " used Machine Gun!");
     console.log(target.name-- 15);
   }
 }
+
+const redcomet = new Zaku ("Zaku II", this.weapon, this.health)
+
+// events
+
+modalBtn.addEventListener('click', (e) => {
+  toggleClass(modal, 'open');
+})
+
+rifleBtnOne.addEventListener('click', (e) => {
+  attackOne();
+  console.log('rifle shot')
+})
+
+saberBtn.addEventListener('click', (e) => {
+  attackTwo();
+  console.log('saber hit')
+})
+
+cannonBtn.addEventListener('click', (e) => {
+  attackThree();
+  console.log('cannon fire')
+})
+
+rifleBtnTwo.addEventListener('click', (e) => {
+  fightOne();
+  console.log('rifle shot')
+})
+
+hawkBtn.addEventListener('click', (e) => {
+  fightTwo();
+  console.log('heat hawk hit')
+})
+
+lmgBtn.addEventListener('click', (e) => {
+  fightThree();
+  console.log('lmg shot')
+})
