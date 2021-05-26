@@ -42,6 +42,9 @@ class Gundam {
     console.log(this.name + " used Pulse Cannon!");
     console.log(target.name-- 15);
   }
+  heal(){
+    console.log(this.name + " restored 15 HP!");
+  }
 }
 
 const rx78 = new Gundam ("RX-78", this.weapon, this.health)
@@ -77,6 +80,9 @@ class Zaku {
     console.log(this.name + " used Machine Gun!");
     console.log(target.name-- 15);
   }
+  heal() {
+    console.log(this.name + " restored 15 HP!");
+  }
 }
 
 const redcomet = new Zaku ("Zaku II", this.weapon, this.health)
@@ -85,6 +91,7 @@ const redcomet = new Zaku ("Zaku II", this.weapon, this.health)
 
 modalBtn.addEventListener('click', (e) => {
   toggleClass(modal, 'open');
+  //startGame();
 })
 
 rifleBtnOne.addEventListener('click', (e) => {
@@ -116,3 +123,19 @@ lmgBtn.addEventListener('click', (e) => {
   fightThree();
   console.log('lmg shot')
 })
+
+// outlier functions that could be used
+
+function enemyHPScale() {
+	var elem = document.getElementById("enemy-hp-bar");
+    var width = 161;
+    var id = setInterval(frame, 100);
+    function frame() {
+        if (width <= 0) {
+            clearInterval(id);
+        } else {
+            width--;
+            elem.style.width = width - '%';
+        }
+    }
+}

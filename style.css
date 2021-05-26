@@ -1,5 +1,5 @@
 body {
-  background-image: url(https://64.media.tumblr.com/757d89eb788de91b57d6578ab9778bcb/tumblr_p7ls1ex05A1v5wg6eo1_540.gifv);
+  background-image: url('https://64.media.tumblr.com/757d89eb788de91b57d6578ab9778bcb/tumblr_p7ls1ex05A1v5wg6eo1_540.gifv');
   background-size: cover;
 }
 
@@ -8,6 +8,7 @@ h2 {
 }
 
 div.modal{
+  font-family: Veranda;
   visibility: hidden;
   width: 50vw;
   max-width: 400px;
@@ -18,12 +19,27 @@ div.modal{
   transform: translateY(-50%);
   margin: 0 auto;
   background-color: black;
+  opacity: 0.5;
   border-radius: 4px;
   padding: 35px;
-  box-shadow: 4px 1px 10px 0px #dadada;
+  /*box-shadow: 4px 1px 10px 0px #dadada;*/
   text-align: center;
 }
 
 div.modal.start{
   visibility: visible;
+}
+
+.bouncy{
+ animation:bouncy 5s infinite linear;
+ position:relative;
+}
+@keyframes bouncy {
+ 0%{top:0em}
+ 40%{top:0em}
+ 43%{top:-0.9em}
+ 46%{top:0em}
+ 48%{top:-0.4em}
+ 50%{top:0em}
+ 100%{top:0em;}
 }
