@@ -126,16 +126,16 @@ lmgBtn.addEventListener('click', (e) => {
 
 // outlier functions that could be used
 
-function enemyHPScale() {
-	var elem = document.getElementById("enemy-hp-bar");
-    var width = 161;
-    var id = setInterval(frame, 100);
-    function frame() {
-        if (width <= 0) {
-            clearInterval(id);
-        } else {
-            width--;
-            elem.style.width = width - '%';
-        }
-    }
-}
+//function enemyHPScale() {
+	//var elem = document.getElementById("enemy-hp-bar");
+  //  var width = 161;
+  //  var id = setInterval(frame, 100);
+//    function frame() {
+//      if (width <= 0) {
+//            clearInterval(id);
+//        } else {
+//            width--;
+//            elem.style.width = width - '%';
+//        }
+//    }
+//}
