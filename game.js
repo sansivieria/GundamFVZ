@@ -4,12 +4,15 @@
 const body = document.querySelector('body')
 const modal = document.querySelector('body > div.modal');
 const modalBtn = document.querySelector('body > div.modal > button.start');
+const gameStart = document.querySelector('body > div.game');
 const rifleBtnOne = document.querySelector();
 const saberBtn = document.querySelector();
 const cannonBtn = document.querySelector();
 const rifleBtnTwo = document.querySelector();
 const hawkBtn = document.querySelector();
 const lmgBtn = document.querySelector();
+
+const toggleModal = () => modal.classList.toggle('open');
 
 // mobile suit class for first player
 
@@ -80,7 +83,7 @@ class Zaku {
     console.log(this.name + " used Machine Gun!");
     console.log(target.name-- 15);
   }
-  heal() {
+  healZaku() {
     console.log(this.name + " restored 15 HP!");
   }
 }
@@ -89,9 +92,13 @@ const redcomet = new Zaku ("Zaku II", this.weapon, this.health)
 
 // events
 
+
 modalBtn.addEventListener('click', (e) => {
   toggleClass(modal, 'open');
-  //startGame();
+})
+
+gameStart.addEventListener('click', (e) => {
+  toggleModal();
 })
 
 rifleBtnOne.addEventListener('click', (e) => {

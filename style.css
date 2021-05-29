@@ -26,61 +26,79 @@ div.modal{
   text-align: center;
 }
 
-div.modal.start{
+div.modal.start {
   visibility: visible;
 }
 
-#contain {
-  display: flex;
+#battle {
+  visibility: hidden;
+  display: inline-flex;
   flex-direction: row;
   justify-content: center;
-  border: 1px solid;
-  border-color: red;
+}
+
+div.game {
+  visibility: visible;
 }
 
 #gundam {
   border: 1px solid;
-  margin-top: 300px;
+}
+
+#gundam img {
+  height: 150px;
 }
 
 #zaku2 {
   border: 1px solid;
-  margin-top: 300px;
+}
+
+#zaku2 img {
+  height: 150px
 }
 
 .character {
-  margin: 80px 300px;
+  margin: 20px 150px;
 }
 
 #txt {
+  text-align: center;
   padding: 20px;
   font: 20pt Arial;
 }
 
 .stats {
   width: 250px;
-  border: 1px solid;
-  border-color: aquamarine;
+}
+
+.buttonStyle {
+  background-color: white;
+  border-color: aqua;
+  font: 12pt Arial;
+}
+
+.buttonStyle:hover {
+  background-color: black;
+  color: white;
 }
 
 .hpBar {
   font: 18pt Arial;
+  color: white;
   font-weight: bold;
 }
 
 .hpBorder {
-  width : 300px;
+  width : 200px;
   height: 20px;
   border: 3px solid;
 }
 
 .healthBar {
-  width: 300px;
+  width: 200px;
   height: 20px;
   background-color: beige;
 }
-
-
 
 
 
