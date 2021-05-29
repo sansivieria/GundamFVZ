@@ -97,9 +97,7 @@ modalBtn.addEventListener('click', (e) => {
   toggleClass(modal, 'open');
 })
 
-gameStart.addEventListener('click', (e) => {
-  toggleModal();
-})
+
 
 rifleBtnOne.addEventListener('click', (e) => {
   attackOne();
