@@ -5,6 +5,13 @@ const body = document.querySelector('body')
 const modal = document.querySelector('body > div.modal');
 const modalBtn = document.querySelector('body > div.modal > button.start');
 const gameStart = document.querySelector('body > div.game');
+const txt = document.getElementById('txt');
+const stats = document.getElementsByClassName('stats');
+const gundamHP = document.getElementById('gundamHP');
+const gundamHealth = document.getElementById('gundamHealth');
+const gundamMoves = document.getElementById('gundamMoves');
+const zakuHealth = document.getElementById('zakuHealth');
+const bgmMenu = new Audio("https://github.com/sansivieria/GundamFVZ/blob/main/audio/music/Piano%20Intro.mp3");
 const rifleBtnOne = document.querySelector();
 const saberBtn = document.querySelector();
 const cannonBtn = document.querySelector();
@@ -26,16 +33,30 @@ class Gundam {
     };
     this.accuracy = accuracy;
     this.health = 100;
-    this.image = {
-      "", "";
-    }
+    this.image = "https://i.imgur.com/9xupfyl.png";
   }
   checkHealth() {
     console.log("Remaning HP: " + this.health);
   }
   attackOne() {
-    console.log(this.name + " used Beam Rifle!");
-    console.log(target.name-- 10);
+    const hitChance = Math.round(Math.random()*10);
+    if (hitChance =<7){
+      const dmg = Math.round(Math.random()*10)+10;
+      zakuHealth -= dmg;
+      if (zakuHealth < 0){
+        zakuHealth = 0;
+      }
+      txt.innerHTML =  "You hit Char for " + dmg + " damage, the Zaku has " + zakuHealth + " HP remaining!"
+      const zakuHPBar = (zakuHealth/100)*200;
+      zakuHealth.style.width = zakuHPbar + "px";
+    }
+    else {
+      txt.innerHTML = "Your attack missed!"
+    }
+    if (zakuHealth == 0){
+      txt.innerHTML += "<br>The Zaku has been destroyed! Char did not stand a chance!";
+      gundamMoves.style.visibility = "hidden";
+    }
   }
   attackTwo() {
     console.log(this.name + " used Beam Saber!");
@@ -64,9 +85,7 @@ class Zaku {
     };
     this.accuracy = accuracy;
     this.health = 100;
-    this.image = {
-      "", "";
-    }
+    this.image = "https://i.imgur.com/cB3zAU0.png"
   }
   checkHealth() {
     console.log("Remaning HP: " + this.health);
