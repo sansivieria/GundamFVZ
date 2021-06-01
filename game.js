@@ -54,8 +54,8 @@ class Gundam {
       txt.innerHTML = "Your attack missed!"
     }
     if (enemy.health == 0){
-      txt.innerHTML += "<br>The Zaku has been destroyed! Char did not stand a chance!";
-      gundamMoves.style.visibility = "hidden";
+      txt.innerHTML += "<br>The Zaku has been destroyed! Char did not stand a chance!<br>Press Command+R to Play again ;-)";
+
     }
     else {
 
@@ -77,8 +77,8 @@ class Gundam {
       txt.innerHTML = "Your attack missed!"
     }
     if (enemy.health == 0){
-      txt.innerHTML += "<br>The Zaku has been destroyed! Char did not stand a chance!";
-      gundamMoves.style.visibility = "hidden";
+      txt.innerHTML += "<br>The Zaku has been destroyed! Char did not stand a chance!<br>Press Command+R to Play again ;-)";
+
     }
     else {
 
@@ -100,14 +100,12 @@ class Gundam {
       txt.innerHTML = "Your attack missed!"
     }
     if (enemy.health == 0){
-      txt.innerHTML += "<br>The Zaku has been destroyed! Char did not stand a chance!";
-      gundamMoves.style.visibility = "hidden";
+      txt.innerHTML += "<br>The Zaku has been destroyed! Char did not stand a chance!<br>Press Command+R to Play again ;-)";
+
     }
     else {
 
     }
-    console.log(this.name + " used Pulse Cannon!");
-  //  console.log(target.name-- 15);
   }
   heal(){
     console.log(this.name + " restored 15 HP!");
@@ -179,8 +177,8 @@ class Zaku {
       }
     }
     if (gundamHealth == 0){
-      txt.innerHTML += "<br>Your Gundam has been destroyed! Better luck next time!";
-      gundamMoves.style.visibility = "hidden";
+      txt.innerHTML += "<br>Your Gundam has been destroyed! Better luck next time!<br>Press Command+R to Play again ;-)";
+      
     }
     else {
 
