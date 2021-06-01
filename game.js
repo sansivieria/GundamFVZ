@@ -3,7 +3,6 @@
 
 const body = document.querySelector('body')
 const modal = document.querySelector('body > div.modal');
-const modalBtn = document.querySelector('body > div.modal > button.start');
 const gameStart = document.querySelector('body > div.game');
 const txt = document.getElementById('txt');
 const stats = document.getElementsByClassName('stats');
@@ -19,7 +18,7 @@ const rifleBtnTwo = document.querySelector();
 const hawkBtn = document.querySelector();
 const lmgBtn = document.querySelector();
 
-const toggleModal = () => modal.classList.toggle('open');
+
 
 // mobile suit class for first player
 
@@ -57,6 +56,9 @@ class Gundam {
       txt.innerHTML += "<br>The Zaku has been destroyed! Char did not stand a chance!";
       gundamMoves.style.visibility = "hidden";
     }
+    else {
+
+    }
   }
   attackTwo() {
     console.log(this.name + " used Beam Saber!");
@@ -90,9 +92,60 @@ class Zaku {
   checkHealth() {
     console.log("Remaning HP: " + this.health);
   }
-  fightOne() {
-    console.log(this.name + " used Beam Rifle!");
-    console.log(target.name-- 10);
+  fightBack() {
+    const attackChoice = Math.ceil(Math.random()*3);
+    if (attackChoice == 1){
+      const hitChance = Math.round(Math.random()*10);
+      if (hitChance =<7){
+        const dmg = Math.round(Math.random()*10)+10;
+        gundamHealth -= dmg;
+        if (gundamHealth < 0){
+          gundamHealth = 0;
+        }
+        txt.innerHTML +=  "<br>Char used Beam Rifle for " + dmg + " damage, your Gundam has " + gundamHealth + " HP remaining!"
+        const gundamHPBar = (gundamHealth/100)*200;
+        gundamHealth.style.width = gundamHPbar + "px";
+      } else {
+        txt.innerHTML += "<br>Char missed!";
+      }
+    } else if (attackChoice == 2){
+      const hitChance = Math.round(Math.random()*10);
+      if (hitChance =<8){
+        const dmg = Math.round(Math.random()*5)+5;
+        gundamHealth -= dmg;
+        if (gundamHealth < 0){
+          gundamHealth = 0;
+        }
+        txt.innerHTML +=  "<br>Char used Heat Hawk for " + dmg + " damage, your Gundam has " + gundamHealth + " HP remaining!"
+        const gundamHPBar = (gundamHealth/100)*200;
+        gundamHealth.style.width = gundamHPbar + "px";
+      } else {
+        txt.innerHTML += "<br>Char missed!";
+      }
+    } else {
+      const hitChance = Math.round(Math.random()*10);
+      if (hitChance =<8){
+        const dmg = Math.round(Math.random()*15)+15;
+        gundamHealth -= dmg;
+        if (gundamHealth < 0){
+          gundamHealth = 0;
+        }
+        txt.innerHTML +=  "<br>Char used Machine Gun for " + dmg + " damage, your Gundam has " + gundamHealth + " HP remaining!"
+        const gundamHPBar = (gundamHealth/100)*200;
+        gundamHealth.style.width = gundamHPbar + "px";
+      } else {
+        txt.innerHTML += "<br>Char missed!";
+      }
+    }
+    if (gundamHealth == 0){
+      txt.innerHTML += "<br>Your Gundam has been destroyed! Better luck next time!";
+      gundamMoves.style.visibility = "hidden";
+    }
+    else {
+
+    }
+
+
   }
   fightTwo() {
     console.log(this.name + " used Heat Hawk!");
@@ -109,18 +162,29 @@ class Zaku {
 
 const redcomet = new Zaku ("Zaku II", this.weapon, this.health)
 
+// functions
+
+
+
+const toggleModal = () => modal.classList.toggle('open');
+
+
+const gameBegin = () => {
+    modal.classList.remove('open');
+    beginFight();
+}
+
+const restartGame = () => {
+
+}
+
+
 // events
 
+getStarted.addEventListener('click', openModal);
 
 
-//modalBtn.addEventListener('click', (e) => {
-  //toggleClass(modal, 'close');
-//})
 
-modalBtn.addEventListener('click', (e) => {
-  toggleClass(modal, 'open');
-  toggleModal();
-})
 
 rifleBtnOne.addEventListener('click', (e) => {
   attackOne();
@@ -152,6 +216,9 @@ lmgBtn.addEventListener('click', (e) => {
   console.log('lmg shot')
 })
 
+window.onload = () => {
+    startGame();
+}
 
 // outlier functions that could be used
 

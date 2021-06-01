@@ -26,9 +26,11 @@ div.modal{
   text-align: center;
 }
 
-div.modal.start {
+div.modal.open {
   visibility: visible;
 }
+
+
 
 #battle {
   display: inline-flex;
@@ -39,8 +41,6 @@ div.modal.start {
 
 #gundam {
   border: 1px solid;
-
-  //visibility: hidden;
 }
 
 #gundam img {
@@ -50,9 +50,6 @@ div.modal.start {
 
 #zaku2 {
   border: 1px solid;
-
-
-  //visibility: hidden;
 }
 
 #zaku2 img {
@@ -78,7 +75,7 @@ div.modal.start {
 
 .stats {
   width: 250px;
-  visibility: hidden;
+  visibility: ;
 }
 
 .buttonStyle {
