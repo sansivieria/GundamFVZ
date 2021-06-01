@@ -93,11 +93,15 @@ const redcomet = new Zaku ("Zaku II", this.weapon, this.health)
 // events
 
 
+
+//modalBtn.addEventListener('click', (e) => {
+  //toggleClass(modal, 'close');
+//})
+
 modalBtn.addEventListener('click', (e) => {
   toggleClass(modal, 'open');
+  toggleModal();
 })
-
-
 
 rifleBtnOne.addEventListener('click', (e) => {
   attackOne();
@@ -128,6 +132,7 @@ lmgBtn.addEventListener('click', (e) => {
   fightThree();
   console.log('lmg shot')
 })
+
 
 // outlier functions that could be used
 
