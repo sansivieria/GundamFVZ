@@ -27,7 +27,7 @@ div.modal{
 }
 
 div.modal.open {
-  visibility: visible;
+  /*visibility: visible;*/
 }
 
 
