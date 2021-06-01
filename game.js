@@ -54,11 +54,10 @@ class Gundam {
       txt.innerHTML = "Your attack missed!"
     }
     if (enemy.health == 0){
-      txt.innerHTML += "<br>The Zaku has been destroyed! Char did not stand a chance!<br>Press Command+R to Play again ;-)";
-
+      txt.innerHTML = "<br>The Zaku has been destroyed! Char did not stand a chance!<br>Press Command+R to Play again ;-)";
     }
     else {
-
+      fightBack(player);
     }
   }
   attackTwo(enemy) {
@@ -77,11 +76,10 @@ class Gundam {
       txt.innerHTML = "Your attack missed!"
     }
     if (enemy.health == 0){
-      txt.innerHTML += "<br>The Zaku has been destroyed! Char did not stand a chance!<br>Press Command+R to Play again ;-)";
-
+      txt.innerHTML = "<br>The Zaku has been destroyed! Char did not stand a chance!<br>Press Command+R to Play again ;-)";
     }
     else {
-
+      fightBack(player);
     }
   }
   attackThree(enemy) {
@@ -100,11 +98,10 @@ class Gundam {
       txt.innerHTML = "Your attack missed!"
     }
     if (enemy.health == 0){
-      txt.innerHTML += "<br>The Zaku has been destroyed! Char did not stand a chance!<br>Press Command+R to Play again ;-)";
-
+      txt.innerHTML = "<br>The Zaku has been destroyed! Char did not stand a chance!<br>Press Command+R to Play again ;-)";
     }
     else {
-
+      fightBack(player);
     }
   }
   heal(){
@@ -131,19 +128,19 @@ class Zaku {
   checkHealth() {
     console.log("Remaning HP: " + this.health);
   }
-  fightBack() {
+  fightBack(player) {
     const attackChoice = Math.ceil(Math.random()*3);
     if (attackChoice == 1){
       const hitChance = Math.round(Math.random()*10);
       if (hitChance <= 7){
         const dmg = Math.round(Math.random()*10)+10;
-        gundamHealth -= dmg;
-        if (gundamHealth < 0){
-          gundamHealth = 0;
+        player.health -= dmg;
+        if (player.health < 0){
+          player.health = 0;
         }
-        txt.innerHTML +=  "<br>Char used Beam Rifle for " + dmg + " damage, your Gundam has " + gundamHealth + " HP remaining!"
-        const gundamHPBar = (gundamHealth/100)*200;
-        gundamHealth.style.width = gundamHPbar + "px";
+        txt.innerHTML +=  "<br>Char used Beam Rifle for " + dmg + " damage, your Gundam has " + player.health + " HP remaining!"
+        const gundamHPBar = (player.health/100)*200;
+        gundamHealth.style.width = `${gundamHPbar}px`
       } else {
         txt.innerHTML += "<br>Char missed!";
       }
@@ -151,51 +148,59 @@ class Zaku {
       const hitChance = Math.round(Math.random()*10);
       if (hitChance <= 8){
         const dmg = Math.round(Math.random()*5)+5;
-        gundamHealth -= dmg;
-        if (gundamHealth < 0){
-          gundamHealth = 0;
+        player.health -= dmg;
+        if (player.health < 0){
+          player.health = 0;
         }
-        txt.innerHTML +=  "<br>Char used Heat Hawk for " + dmg + " damage, your Gundam has " + gundamHealth + " HP remaining!"
+        }
+        txt.innerHTML +=  "<br>Char used Heat Hawk for " + dmg + " damage, your Gundam has " + player.health + " HP remaining!"
         const gundamHPBar = (gundamHealth/100)*200;
-        gundamHealth.style.width = gundamHPbar + "px";
-      } else {
+        gundamHealth.style.width = `${gundamHPbar}px`
+      }
+      else {
         txt.innerHTML += "<br>Char missed!";
       }
-    } else {
-      const hitChance = Math.round(Math.random()*10);
-      if (hitChance <= 8){
-        const dmg = Math.round(Math.random()*15)+15;
-        gundamHealth -= dmg;
-        if (gundamHealth < 0){
-          gundamHealth = 0;
-        }
-        txt.innerHTML +=  "<br>Char used Machine Gun for " + dmg + " damage, your Gundam has " + gundamHealth + " HP remaining!"
-        const gundamHPBar = (gundamHealth/100)*200;
-        gundamHealth.style.width = gundamHPbar + "px";
-      } else {
-        txt.innerHTML += "<br>Char missed!";
+      if (player.health == 0){
+        txt.innerHTML = "<br>Your Gundam has been destroyed!<br>Press Command+R to Play again ;-)";
       }
-    }
-    if (gundamHealth == 0){
-      txt.innerHTML += "<br>Your Gundam has been destroyed! Better luck next time!<br>Press Command+R to Play again ;-)";
-      
-    }
-    else {
-
-    }
 
 
-  }
-  fightTwo() {
-    console.log(this.name + " used Heat Hawk!");
-  //  console.log(target.name-- 4);
-  }
-  fightThree() {
-    console.log(this.name + " used Machine Gun!");
-  //  console.log(target.name-- 15);
-  }
-  healZaku() {
-    console.log(this.name + " restored 15 HP!");
+
+    // } else if {
+    //   const hitChance = Math.round(Math.random()*10);
+    //   if (hitChance <= 8){
+    //     const dmg = Math.round(Math.random()*15)+15;
+    //     player.health -= dmg;
+    //     if (player.health < 0){
+    //       player.health = 0;
+    //     }
+    //     txt.innerHTML +=  "<br>Char used Machine Gun for " + dmg + " damage, your Gundam has " + player.health + " HP remaining!"
+    //     const gundamHPBar = (gundamHealth/100)*200;
+    //     gundamHealth.style.width = `${gundamHPbar}px`
+    //   } else {
+    //     txt.innerHTML += "<br>Char missed!";
+    //   }
+    // }
+    // if (gundamHealth == 0){
+    //   txt.innerHTML += "<br>Your Gundam has been destroyed! Better luck next time!<br>Press Command+R to Play again ;-)";
+    //
+    // }
+    // else {
+    //
+    // }
+
+  //
+  // }
+  // fightTwo() {
+  //   console.log(this.name + " used Heat Hawk!");
+  // //  console.log(target.name-- 4);
+  // }
+  // fightThree() {
+  //   console.log(this.name + " used Machine Gun!");
+  // //  console.log(target.name-- 15);
+  // }
+  // healZaku() {
+  //   console.log(this.name + " restored 15 HP!");
   }
 }
 
@@ -227,17 +232,23 @@ const restartGame = () => {
 
 rifleBtnOne.addEventListener('click', (e) => {
   rx78.attackOne(redcomet);
-  console.log('rifle shot')
+  console.log('rifle shot');
+  redcomet.fightBack(rx78);
+  console.log('retaliate');
 })
 
 saberBtn.addEventListener('click', (e) => {
   rx78.attackTwo(redcomet);
-  console.log('saber hit')
+  console.log('saber hit');
+  redcomet.fightBack(rx78);
+  console.log('retaliate');
 })
 
 cannonBtn.addEventListener('click', (e) => {
   rx78.attackThree(redcomet);
-  console.log('cannon fire')
+  console.log('cannon fire');
+  redcomet.fightBack(rx78);
+  console.log('retaliate')
 })
 
 // rifleBtnTwo.addEventListener('click', (e) => {
