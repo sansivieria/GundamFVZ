@@ -1,4 +1,4 @@
-// variables
+// BIG BOI NODES
 
 
 const body = document.querySelector('body')
@@ -14,9 +14,7 @@ const bgmMenu = new Audio("https://github.com/sansivieria/GundamFVZ/blob/main/au
 const rifleBtnOne = document.querySelector('#rifleBtnOne');
 const saberBtn = document.querySelector('#saberBtn');
 const cannonBtn = document.querySelector('#cannonBtn');
-//const rifleBtnTwo = document.querySelector('#rifleBtnTwo');
-//const hawkBtn = document.querySelector();
-//const lmgBtn = document.querySelector();
+
 
 
 
@@ -63,7 +61,7 @@ class Gundam {
   attackTwo(enemy) {
     const hitChance = Math.round(Math.random()*10);
     if (hitChance <= 9){
-      const dmg = Math.round(Math.random()*10)+10;
+      const dmg = Math.round(Math.random()*5)+5;
       enemy.health -= dmg;
       if (enemy.health < 0){
         enemy.health = 0;
@@ -84,8 +82,8 @@ class Gundam {
   }
   attackThree(enemy) {
     const hitChance = Math.round(Math.random()*10);
-    if (hitChance <= 9){
-      const dmg = Math.round(Math.random()*10)+10;
+    if (hitChance <= 5){
+      const dmg = Math.round(Math.random()*25)+25;
       enemy.health -= dmg;
       if (enemy.health < 0){
         enemy.health = 0;
@@ -109,9 +107,22 @@ class Gundam {
   }
 }
 
+//    WHAT HIS NAME BE
+
 const rx78 = new Gundam ("RX-78", this.weapon, this.health)
 
+
+
+
+
+
 // mobile suit class for computer player
+//
+//    FIX THE FIGHTBACK FUNCTION
+//    STILL DOESNT CONNECT BACK
+//
+//
+//
 
 class Zaku {
   constructor(name, weapon, accuracy, health) {
@@ -163,72 +174,33 @@ class Zaku {
       if (player.health == 0){
         txt.innerHTML = "<br>Your Gundam has been destroyed!<br>Press Command+R to Play again ;-)";
       }
-
-
-
-    // } else if {
-    //   const hitChance = Math.round(Math.random()*10);
-    //   if (hitChance <= 8){
-    //     const dmg = Math.round(Math.random()*15)+15;
-    //     player.health -= dmg;
-    //     if (player.health < 0){
-    //       player.health = 0;
-    //     }
-    //     txt.innerHTML +=  "<br>Char used Machine Gun for " + dmg + " damage, your Gundam has " + player.health + " HP remaining!"
-    //     const gundamHPBar = (gundamHealth/100)*200;
-    //     gundamHealth.style.width = `${gundamHPbar}px`
-    //   } else {
-    //     txt.innerHTML += "<br>Char missed!";
-    //   }
-    // }
-    // if (gundamHealth == 0){
-    //   txt.innerHTML += "<br>Your Gundam has been destroyed! Better luck next time!<br>Press Command+R to Play again ;-)";
-    //
-    // }
-    // else {
-    //
-    // }
-
-  //
-  // }
-  // fightTwo() {
-  //   console.log(this.name + " used Heat Hawk!");
-  // //  console.log(target.name-- 4);
-  // }
-  // fightThree() {
-  //   console.log(this.name + " used Machine Gun!");
-  // //  console.log(target.name-- 15);
-  // }
-  // healZaku() {
-  //   console.log(this.name + " restored 15 HP!");
   }
 }
 
+
+//    WHAT HIS NAME BE
+
 const redcomet = new Zaku ("Zaku II", this.weapon, this.health)
+
+
+
+
 
 // functions
 
-
-
 const toggleModal = () => modal.classList.toggle('open');
-
 
 const startGame = () => {
     modal.classList.remove('open');
     //beginFight();
 }
 
-const restartGame = () => {
 
-}
+
+
 
 
 // events
-
-//getStarted.addEventListener('click', openModal);
-
-
-
 
 rifleBtnOne.addEventListener('click', (e) => {
   rx78.attackOne(redcomet);
@@ -251,37 +223,9 @@ cannonBtn.addEventListener('click', (e) => {
   console.log('retaliate')
 })
 
-// rifleBtnTwo.addEventListener('click', (e) => {
-//   fightOne();
-//   console.log('rifle shot')
-// })
 
-// hawkBtn.addEventListener('click', (e) => {
-//   fightTwo();
-//   console.log('heat hawk hit')
-// })
-//
-// lmgBtn.addEventListener('click', (e) => {
-//   fightThree();
-//   console.log('lmg shot')
-// })
+//    LOAD ME UP
 
 window.onload = () => {
     startGame();
 }
-
-// outlier functions that could be used
-
-//function enemyHPScale() {
-	//var elem = document.getElementById("enemy-hp-bar");
-  //  var width = 161;
-  //  var id = setInterval(frame, 100);
-//    function frame() {
-//      if (width <= 0) {
-//            clearInterval(id);
-//        } else {
-//            width--;
-//            elem.style.width = width - '%';
-//        }
-//    }
-//}
